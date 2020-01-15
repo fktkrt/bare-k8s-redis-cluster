@@ -13,6 +13,8 @@ https://rancher.com/blog/2019/deploying-redis-cluster/
 
 TODO
 
+![architecture](redis-cluster-architecture.png)
+
 ### Define a default StorageClass resource
 
 See `default-sc.yml` for details
