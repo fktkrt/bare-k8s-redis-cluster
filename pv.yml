@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-volume-1
+  labels:
+    type: local
+spec:
+  storageClassName: default
+  capacity:
+    storage: 150Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/user"
