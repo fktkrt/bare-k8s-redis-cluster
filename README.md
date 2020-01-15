@@ -11,7 +11,17 @@ https://rancher.com/blog/2019/deploying-redis-cluster/
 
 ### Basic concepts
 
-TODO
+Redis Cluster master-slave model
+
+In order to remain available when a subset of master nodes are failing or are not able to communicate with the majority of nodes, Redis Cluster uses a master-slave model where every hash slot has from 1 (the master itself) to N replicas (N-1 additional slaves nodes).
+
+In our example cluster with nodes A, B, C, if node B fails the cluster is not able to continue, since we no longer have a way to serve hash slots in the range 5501-11000.
+
+However when the cluster is created (or at a later time) we add a slave node to every master, so that the final cluster is composed of A, B, C that are masters nodes, and A1, B1, C1 that are slaves nodes, the system is able to continue if node B fails.
+
+Node B1 replicates B, and B fails, the cluster will promote node B1 as the new master and will continue to operate correctly.
+
+However note that if nodes B and B1 fail at the same time Redis Cluster is not able to continue to operate.
 
 ![architecture](redis-cluster-architecture.png)
 
