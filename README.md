@@ -196,7 +196,7 @@ connected
 Create a service for external access.
 See details in `redis-ext-service.yml`
 
-Check your service with `kubectl describe redis-ext-service`
+Check your service with `kubectl describe svc redis-ext-service`
 
 ```
 Name:                     redis-ext-service
@@ -216,7 +216,7 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
-You should see the IP-s of your nodes as Endpoints.
+You should see the IPs of your nodes as Endpoints.
 
 # Test your Redis Cluster from outside your cluster
 
