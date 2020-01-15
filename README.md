@@ -39,12 +39,6 @@ These steps are covered in `deploy-redis-cluster.yml`
 kubectl apply -f default-sc.yml
 
 kubectl apply -f pv.yml
-kubectl apply -f pv1.yml
-kubectl apply -f pv2.yml
-kubectl apply -f pv3.yml
-kubectl apply -f pv4.yml
-kubectl apply -f pv5.yml
-
 kubectl apply -f pvc.yml
 
 kubectl apply -f deploy-redis-cluster.yml
@@ -55,7 +49,7 @@ kubectl apply -f deploy-redis-cluster.yml
 ```
 user@docker:~/k8s-redis-cluster$ kubectl get pv
 NAME          CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                          STORAGECLASS   REASON   AGE
-pv-volume     150Mi      RWO            Retain           Bound    default/data-redis-cluster-0   default                 6m3s
+pv-volume-0   150Mi      RWO            Retain           Bound    default/data-redis-cluster-0   default                 6m3s
 pv-volume-1   150Mi      RWO            Retain           Bound    default/data-redis-cluster-1   default                 2m45s
 pv-volume-2   150Mi      RWO            Retain           Bound    default/data-redis-cluster-2   default                 2m11s
 pv-volume-3   150Mi      RWO            Retain           Bound    default/data-redis-cluster-3   default                 100s
