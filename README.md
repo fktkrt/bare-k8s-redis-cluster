@@ -1,7 +1,7 @@
 # bare-k8s-redis-cluster
 Deploying a StatefulSet Redis Cluster on K8s cluster, without dynamic volume provisioning, helm charts or redis-operator.
 
-# Introduction
+### Introduction
 
 Idea from:
 
@@ -9,32 +9,32 @@ https://redis.io/topics/cluster-tutorial
 
 https://rancher.com/blog/2019/deploying-redis-cluster/
 
-# Basic concepts
+### Basic concepts
 
-# Setting up a Redis Cluster on top of Kubernetes
+TODO
 
-## Define a default StorageClass resource
+### Define a default StorageClass resource
 
 See `default-sc.yml` for details
 
-## Define your PersistentVolumes
+### Define your PersistentVolumes
 
 If you are not using a cloud provider with dynamic volume provisioning support, you should create a PV for each of your Redis nodes. 
 You can configure an existing folder on your Kubernetes node, choose its size, define your StorageClass and you are good to go.
 
 See `pv.yml` for details.
 
-## Define your PersistentVolumeClaim
+### Define your PersistentVolumeClaim
 
 You need a `PersistentVolumeClaim` matching your `PersistentVolumes`
 
 See `pvc.yml` for details.
 
-## Setting up a ConfigMap, StatefulSet and a Service
+### Setting up a ConfigMap, StatefulSet and a Service
 
 These steps are covered in `deploy-redis-cluster.yml`
 
-# Deploying the aforementioned objects
+### Deploying the aforementioned objects
 ```
 kubectl apply -f default-sc.yml
 
@@ -44,7 +44,7 @@ kubectl apply -f pvc.yml
 kubectl apply -f deploy-redis-cluster.yml
 
 ```
-# Testing your PersistentVolumes
+### Testing your PersistentVolumes
 
 ```
 user@docker:~/k8s-redis-cluster$ kubectl get pv
@@ -57,7 +57,7 @@ pv-volume-4   150Mi      RWO            Retain           Bound    default/data-r
 pv-volume-5   150Mi      RWO            Retain           Bound    default/data-redis-cluster-5   default                 14s
 ```
 
-# Creating the Redis Cluster with 3 master - 3 slave
+### Creating the Redis Cluster with 3 master - 3 slave
 
 Creating a Redis Cluster with `--cluster-replicas 1` creates 3 master and 3 slaves from 6 nodes.
 
@@ -191,7 +191,7 @@ connected
 ```
 
 
-# Setting up external access
+### Setting up external access
 
 Create a service for external access.
 See details in `redis-ext-service.yml`
@@ -218,7 +218,7 @@ Events:                   <none>
 
 You should see the IPs of your nodes as Endpoints.
 
-# Test your Redis Cluster from outside your cluster
+### Test your Redis Cluster from outside your cluster
 
 You have to use the `-c` flag when using redis-cli, see the following link for details: https://redis.io/topics/cluster-tutorial
 
