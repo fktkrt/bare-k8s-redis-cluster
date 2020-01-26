@@ -30,7 +30,8 @@ jobs:
         - kubectl apply -f pv.yml
         - kubectl apply -f pvc.yml
         - kubectl apply -f deploy-redis-cluster.yml
-        - sleep 30
+        - sleep 180
         - kubectl get all
+        - kubectl describe pod redis-cluster-0
         - kubectl exec -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')
         - kubectl exec -it redis-cluster-0 -- redis-cli cluster info
