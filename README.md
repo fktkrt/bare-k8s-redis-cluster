@@ -3,7 +3,7 @@ Deploying a StatefulSet Redis Cluster on K8s cluster, without dynamic volume pro
 
 ### Introduction
 
-Idea from:
+Inspired by:
 
 https://redis.io/topics/cluster-tutorial 
 
