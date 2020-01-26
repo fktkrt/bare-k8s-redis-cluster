@@ -9,7 +9,7 @@ https://redis.io/topics/cluster-tutorial
 
 https://rancher.com/blog/2019/deploying-redis-cluster/
 
-It includes Travis-CI build and test workflow with kind (Kubernetes IN Docker), see this link for details: https://github.com/kubernetes-sigs/kind
+It includes Travis-CI build and test workflow with KinD (Kubernetes in Docker), see this link for details: https://github.com/kubernetes-sigs/kind
 
 ### Basic concepts
 
