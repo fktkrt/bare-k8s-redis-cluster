@@ -49,7 +49,7 @@ However note that if nodes B and B1 fail at the same time Redis Cluster is not a
 
 ### Define a default StorageClass resource
 
-See `default-sc.yml` for details
+See `default-sc.yml` for details.
 
 ### Define your PersistentVolumes
 
@@ -60,22 +60,22 @@ See `pv.yml` for details.
 
 ### Define your PersistentVolumeClaim
 
-You need a `PersistentVolumeClaim` matching your `PersistentVolumes`
+You need a `PersistentVolumeClaim` matching your `PersistentVolumes`.
 
 See `pvc.yml` for details.
 
 ### Setting up a ConfigMap, StatefulSet and a Service
 
-These steps are covered in `deploy-redis-cluster.yml`
+These steps are covered in `deploy-redis-cluster.yml`.
 
 ### Deploying the aforementioned objects
 ```
-kubectl apply -f default-sc.yml
+$ kubectl apply -f default-sc.yml
 
-kubectl apply -f pv.yml
-kubectl apply -f pvc.yml
+$ kubectl apply -f pv.yml
+$ kubectl apply -f pvc.yml
 
-kubectl apply -f deploy-redis-cluster.yml
+$ kubectl apply -f deploy-redis-cluster.yml
 
 ```
 ### Testing your PersistentVolumes
@@ -96,7 +96,7 @@ pv-volume-5   150Mi      RWO            Retain           Bound    default/data-r
 Creating a Redis Cluster with `--cluster-replicas 1` creates 3 master and 3 slaves from 6 nodes.
 
 ```
-kubectl exec -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')
+$ kubectl exec -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')
 ```
 
 Sample output:
@@ -177,7 +177,7 @@ cluster_stats_messages_received:296
 You can test the roles of the nodes with the following for cycle:
 
 ```
-for x in $(seq 0 5); do echo "redis-cluster-$x"; kubectl exec redis-cluster-$x -- redis-cli role; echo; done
+$ for x in $(seq 0 5); do echo "redis-cluster-$x"; kubectl exec redis-cluster-$x -- redis-cli role; echo; done
 ```
 
 ```
