@@ -1,4 +1,4 @@
-# bare-k8s-redis-cluster
+# bare-k8s-redis-cluster [![Build Status](https://travis-ci.org/fktkrt/bare-k8s-redis-cluster.svg?branch=master)](https://travis-ci.org/fktkrt/bare-k8s-redis-cluster)
 Deploying a StatefulSet Redis Cluster on K8s cluster, without dynamic volume provisioning, helm charts or redis-operator.
 
 ### Introduction
@@ -8,6 +8,8 @@ Idea from:
 https://redis.io/topics/cluster-tutorial 
 
 https://rancher.com/blog/2019/deploying-redis-cluster/
+
+It includes Travis-CI build and test workflow with kind (Kubernetes IN Docker), see this link for details: https://github.com/kubernetes-sigs/kind
 
 ### Basic concepts
 
