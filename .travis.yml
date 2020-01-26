@@ -25,7 +25,7 @@ jobs:
 
         # Set KUBECONFIG environment variable
         - export KUBECONFIG="$(kind get kubeconfig-path)"
-      script: make test-integration
+      script: 
         - kubectl apply -f default-sc.yml
         - kubectl apply -f pv.yml
         - kubectl apply -f pvc.yml
